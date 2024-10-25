@@ -79,39 +79,39 @@ let segundaCarta = "";
 let primeiroPersonagem = "";
 let segundoPersonagem = "";
 
-function flip(item) {
-  if (primeiraCarta === "") {
-    primeiraCarta = item;
-    item.classList.add("flip");
-    primeiroPersonagem = item.getAttribute("data-parrot");
-    contador++; // Conta o clique apenas quando a carta é virada
-  } else if (segundaCarta === "") {
-    segundaCarta = item;
-    item.classList.add("flip");
-    segundoPersonagem = item.getAttribute("data-parrot");
-    setTimeout(verificarSeSaoIguais, 1000);
-    contador++; // Conta o clique apenas quando a carta é virada
-  }
+function flip(item) {  
+  if (primeiraCarta === "") {    
+      primeiraCarta = item;    
+      item.classList.add("flip");    
+      primeiroPersonagem = item.getAttribute("data-parrot");  
+  } else if (segundaCarta === "") {    
+      segundaCarta = item;    
+      item.classList.add("flip");    
+      segundoPersonagem = item.getAttribute("data-parrot");    
+      setTimeout(verificarSeSaoIguais, 1000);  
+  }  
+  contador++; 
   setTimeout(encerrarJogo, 500);
 }
 
-function verificarSeSaoIguais() {
-  if (primeiroPersonagem == segundoPersonagem) {
-    primeiraCarta = "";
-    segundaCarta = "";
-  } else {
-    primeiraCarta.classList.remove("flip");
-    segundaCarta.classList.remove("flip");
-    primeiraCarta = "";
-    segundaCarta = "";
+function verificarSeSaoIguais() {  
+  if (primeiroPersonagem == segundoPersonagem) {    
+      primeiraCarta = "";    
+      segundaCarta = "";  
+  } else {    
+      primeiraCarta.classList.remove("flip");    
+      segundaCarta.classList.remove("flip");    
+      primeiraCarta = "";    
+      segundaCarta = "";  
   }
 }
+
 
 function encerrarJogo() {
   const flipedCards = document.querySelectorAll(".flip");
   const numeroCartas = document.querySelectorAll(".card");
   if (flipedCards.length === numeroCartas.length) {
-    const jogadasDivididas = contador / 2;
+    const jogadasDivididas = contador;
     alert(
       `Você venceu o jogo em ${jogadasDivididas} tentativas e ${contar} segundos, parabéns!`
     );
